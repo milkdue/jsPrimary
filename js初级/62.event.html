@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 3000px;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background-color: red;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        event
+            发生事件时系统自动封装对象 传给event对象
+            任何事件都有这个event对象 就是回调函数的第一个形参
+        event兼容处理
+            event = event || window.event
+        event.target 事件委派
+            event.target || event.srcElement
+        鼠标的位置
+            clientX & clientY   //相对于视口 以视口左上点为原点
+            pageX pageY         //相对于页面    以页面左上点为原点
+            offsetX offsetY     //相对于自身元素    相对自身的元素左上点
+            screenX screenY     //相对屏幕
+     -->
+     <div id="box">
+
+     </div>
+     <script>
+         var box = document.getElementById("box");
+         box.onclick = function(event){
+             console.log(event);
+         }; 
+     </script>
+</body>
+</html>

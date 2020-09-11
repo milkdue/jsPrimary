@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p style = "visibility: hidden;">haha</p>
+    <p>hahaha</p>
+    <script>
+        var pList = document.querySelectorAll("p");
+        console.log(pList[0].innerText);//无法获取隐藏内容
+        console.log(pList[0].textContent);//可以获取隐藏内容
+    </script>
+</html>

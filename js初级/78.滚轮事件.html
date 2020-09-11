@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .box {
+            position: relative;
+            left: 0px;
+            top: 0px;
+            height: 20px;
+            width: 200px;
+            background-color: red;
+        }
+
+        .box2 {
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        盒子滚动滚轮改变高度案例
+
+		ie/chrome : mousewheel(dom2的标准模式)
+			event.wheelDelta
+				上：120
+				下：-120
+
+
+		firefox : DOMMouseScroll(dom2的标准模式)
+			event.detail
+				上：-3
+				下：3
+
+				
+		return false阻止的是  dom0 所触发的默认行为
+		dom2 需要通过event下面的event.preventDefault();
+     -->
+
+    <div class="box"></div>
+    <div class="box2"></div>
+
+    <script>
+        var boxNode = document.querySelector(".box");
+        var flag = true;
+        function scrollWheel(event) {
+            event = event || window.event;
+            if (event.wheelDelta) {
+                if (event.wheelDelta > 0) {
+                    flag = true;
+                } else {
+                    flag = false;
+                }
+            } else if (event.detail) {
+                if (event.detail < 0) {
+                    flag = true;
+                } else {
+                    flag = false;
+                }
+            }
+
+            if (flag) {
+                boxNode.style.height = boxNode.offsetHeight - 10 + "px";
+            } else {
+                boxNode.style.height = boxNode.offsetHeight + 10 + "px";
+            }
+
+        }
+        document.addEventListener("mousewheel", scrollWheel);
+        document.addEventListener("DOMMouseScroll", scrollWheel);
+    </script>
+</body>
+
+</html>

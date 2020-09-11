@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "text" style="background : red">
+        you are a ben dan
+        <span>i know!</span>
+    </div>
+
+    <script>
+        // document.getElementsByTagName(标签串)通过标签选择多个元素 返回伪数组
+        // document.getElementsByClassName()//通过类名选择多个元素 返回伪数组
+        var text = document.querySelector(".text");//querySelectorAll(参数必须是选择器串) 选择一类标签返回一个伪数组 querySelector(参数是选择器)选择一个标签返回一个对象
+        text.onclick = function(){//绑定事件监听
+            // this.innerHTML = "<h2>haha</h2>";//innerHTML可以处理 标签内容
+            this.innerText = "<h2>haha</h2>";//innerText 无法处理标签内容 将标签当作文本执行
+        }
+
+        console.log(text.innerHTML);//标签内还有其他标签会把标签里的内容包括标签一起输出 包括换行和空格
+        console.log(text.innerText);//将标签里的内容全部输出 但是如果标签里面还有标签 不会将标签输出
+    </script>
+</body>
+</html>

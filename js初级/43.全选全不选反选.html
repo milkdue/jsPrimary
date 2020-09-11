@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="all">全选</button>
+    <button id="noAll">全不选</button>
+    <button id="opposite">反选</button>
+    <input type="checkbox">唱歌
+    <input type="checkbox">跳舞
+    <input type="checkbox">rap
+    <input type="checkbox">抽烟
+    <input type="checkbox">喝酒
+    <input type="checkbox">烫头
+
+    <script>
+        window.onload = function(){
+            var all = document.getElementById("all");
+            var noAll = document.getElementById("noAll");
+            var opposite = document.getElementById("opposite");
+            var inputList = document.querySelectorAll("input");
+
+            all.onclick = function(){
+                for(var i = 0; i < inputList.length; i++){
+                    inputList[i].checked = true;
+                }
+            }
+
+            noAll.onclick = function(){
+                for(var i = 0; i < inputList.length; i++){
+                    inputList[i].checked = false;
+                }
+            }
+
+            opposite.onclick = function(){
+                for(var i = 0; i < inputList.length; i++){
+                    inputList[i].checked = !inputList[i].checked;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

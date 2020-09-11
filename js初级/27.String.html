@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            String内置对象的方法
+
+        */19
+
+        var str = "qrqq 132 fafda 32 afafafafafa";
+        console.log(str);
+        console.log(str.length);//返回字符串的长度
+        console.log(str.charAt(9))//返回索引为9的字符
+        console.log(str.concat("111"));//字符串拼接 返回一个新串 不改变原来的串
+        console.log(str);
+        console.log(str.indexOf("1"));//返回字符为1的索引
+        console.log(str.indexOf("3" , 8));//返回字符为3的从索引8开始的索引
+        console.log(str.lastIndexOf("f"));//返回字符为f的索引 默认从末尾开始查找
+        console.log(str.replace("q", "**"));//字符串替换 将q替换为**
+        console.log(str.replace(/q/g, "**"));//使用正则将所有q替换为**
+        console.log(str.localeCompare("a"));//字符串比较 比它大返回1
+        console.log(str.localeCompare("x"));//比它小返回-1
+        console.log(str.localeCompare("qrqq 132 fafda 32 afafafafafa"));//相等返回0
+        console.log(str.match(/q/g));//匹配正则返回数组
+        console.log(str.slice(2, 6));//字符串切割 返回一个新串 参数是开始索引和结束索引 结束索引可以不写 表示直到末尾结束 返回的串不包括结束索引的字符
+        console.log(str.slice(2));
+        console.log(str.split());//分割字符返回数组 参数不写表示整个串是一个数组
+        console.log(str.split(" "));//以空格分隔 返回数组
+        console.log(str.split("3"));//以字符3分割字符串 分割的字符不在新数组之中
+        console.log(str.substr(5, 2));//分割字符串 第一个参数是索引 第二个表示长度
+        console.log(str.slice(2, -23));//分割字符串
+        console.log(str.substring(2, 6));//同上 但是第二个参数不可以是负数
+        console.log(str.toUpperCase());//字符串大写
+        console.log(str.toLowerCase());//字符串小写
+        console.log(str.toString());//返回字符串
+        console.log(str.valueOf());//返回字符串
+        console.log(str.includes("12"));//判断子串是否在字符串里存在
+        console.log(str.startsWith("qrq"));//判断字符串是否以该串开头
+        console.log(str.endsWith("a"));//判断字符串是否以该串结尾
+        console.log(str.repeat(2));//字符串的重复次数
+
+    </script>
+</body>
+</html>

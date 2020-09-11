@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1 = [[1, 3], [2, 5, 3]];
+        var arr2 = [
+            [],
+            [],
+            [],
+            [],
+            []
+        ];
+
+        for(var i = 0; i < arr1.length; i++){
+            for(var j = 0; j < arr1[i].length; j++){
+                console.log(arr1[i][j]);
+            }
+        }
+
+        for(i = 0; i < arr2.length; i++){
+            for(j = 0; j < arr2.length; j++){
+                arr2[i][j] = 5 * i + j + 1;
+            }
+        }
+
+        for(i = 0; i < arr2.length; i++){
+            for(j = 0; j < i + 1; j++){
+                document.write(arr2[i][j] + "&nbsp;");
+            }
+            document.write("<br>");
+        }
+    </script>
+</body>
+</html>

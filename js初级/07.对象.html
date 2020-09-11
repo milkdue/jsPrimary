@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对象</title>
+    <script>
+        /*
+            引用数据类型
+                基本数据类型都是单一的值 值与值之间没有联系
+                对象
+                    属性    变量
+                    行为    方法
+                对象的分类
+                    内建对象       ES标准中定义的对象 在任何ES中的实现都可以使用
+                        Math String Number Boolean Function Object...
+                    宿主对象
+                        由JS的运行环境提供的对象 目前来讲主要是浏览器提供的对象
+                        比如BOM DOM
+                    自定义对象
+                        开发人员自行创建
+                    对象是类的实例化
+                
+                 创建对象
+                    var obj = new Object();
+                    无参构造函数
+                    在对象中添加属性
+                        对象.属性名 = 属性值;
+                    读取
+                        对象.属性名
+                        如果对象中没有的属性 读取时不会报错返回undefined
+                    删除
+                        delete 对象.属性名
+
+                    对象的属性名不强制要求遵守标识符的规范
+                        什么都可以用
+                    var a = new Object()
+                    a.var = 134;
+
+                    如果要使用特殊的属性名 不能采用.的方式来操作
+                        需要使用另一种方式
+                            语法：对象["属性名"] = 属性值//必须带引号 不加就是变量 如果找不到就会报错
+                                取得时候一样
+                            使用[]这种形式去操作属性 更加得灵活
+                            []表示键
+                            在[]中可以直接传递一个变量 这个变量得值是多少就读取那个属性
+                            js得属性值可以是任意值 甚至是一个对象
+                            in 运算符
+                                通过in运算符可以检查一个对象中是否有含有指定的属性
+                                    有返回true  否则返回false
+                                语法
+                                    "属性名" in 对象
+        */
+        var ob = new Object();
+        var obj = new Object();
+        ob.name = "su";
+        obj.name = ob;
+        var a = "name";
+        console.log(ob);
+        console.log(ob.name);
+        console.log(ob[a]);
+        console.log(obj.name.name);
+        console.log("name" in ob);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

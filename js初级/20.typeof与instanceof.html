@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            typeof只能判断数值 字符串 function undefined 布尔类型
+            而instanceof只能判断对象是否属于这个类  Object属于所有实例的祖先
+            数组中专门封装了一个方法 Array.isArray(对象);
+        */
+        var a = 12;//number
+        a = "ste";//string
+        a = function(){//function
+            console.log("aaa");
+        }
+        a = true;//boolean
+        a = undefined;//undefined
+        a = {};//object
+        a = [];//object
+        a = null;//object
+        console.log(typeof a);
+
+        function Person(name){
+            this.name = name;
+        }
+
+        a = new Person("li");
+        console.log(a instanceof Person);//true
+        console.log(a instanceof Object);//true
+        console.log(a instanceof Array);//false
+        a = [];
+        console.log(a instanceof Person);//false
+        console.log(a instanceof Object);//true
+        console.log(a instanceof Array);//true
+        console.log(a == null);//false
+        console.log(Array.isArray(a));//true
+    </script>
+</body>
+</html>

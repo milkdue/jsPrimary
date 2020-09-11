@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            当构造函数解析时就会在堆中生成一块空间 在这个构造函数中默认有一个属性
+            prototype指向这个构造函数的原型对象 同时这个原型对象中也有一个属性
+            constructor构造器指向它的构造函数
+
+            当用构造函数实例化一个对象的时候 对象中也有一个属性_proto_也指向这个原型对象
+            这个属性也叫隐式原型对象   
+            原型对象默认是Object实例化对象 
+            这个原型对象相当于实例化对象的公共区域 他们本身没有原型对象中的属性 但是
+            当访问这个属性时 首先在对象本身中寻找 如果没有就会在原型对象中 寻找
+
+            原型对象节省了内存 把相同属性 放在原型对象中 所有实例化对象都可以使用
+
+            为原型对象添加属性
+            构造函数.prototype.属性 = function(){};
+        */
+
+        function Singer(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Singer.prototype.sing = function(){
+            console.log("我唱歌很好听");
+        };
+
+        var singer1 = new Singer("ju", 18);
+        var singer2 = new Singer("hua", 52);
+        console.log(singer1);
+        console.log(singer2);
+        singer1.sing();
+        singer2.sing();
+
+    </script>
+</body>
+</html>

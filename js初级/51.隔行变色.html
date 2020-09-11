@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var star = ["周杰伦", "胡歌", "蔡徐坤"];
+        var str = "<ul id='list'>";     
+        // 第二种方式
+        for(var i = 0; i < star.length; i++){
+            str += "<li>" + star[i] + "</li>";
+        }
+
+        str += "</ul>";
+        document.body.innerHTML += str;
+        var ulNode = document.getElementById("list");
+        var liList = document.querySelectorAll("#list li");
+
+        for(var i = 0; i < liList.length; i++){
+            if(i % 2 == 0){
+                liList[i].style.backgroundColor = "red";
+            }else{
+                liList[i].style.backgroundColor = "yellow";
+            }
+        }
+
+        //第三种方式
+        var ulNode = document.createElement("ul");
+
+        for(var i = 0; i < star.length; i++){
+            var liNode = document.createElement("li");
+            liNode.innerText = star[i];
+            ulNode.appendChild(liNode);
+
+            if(i % 2 == 0){
+                liNode.style.backgroundColor = "blue";//添加元素的时候一起隔行变色
+            }else{
+                liNode.style.backgroundColor = "pink";
+            }
+        }
+
+        document.body.appendChild(ulNode);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bigImg{
+            width : 400px;
+            height : 400px;
+            margin : 100px auto 0px;
+        }
+
+        .bigImg img{
+            width : 100%;
+            height : 100%;
+        }
+
+        .smallImg{
+            width : 400px;
+            height : 200px;
+            margin : 0px auto;
+            display : flex;
+        }
+
+        .smallImg .smallImg1{
+            width : 200px;
+            height : 200px;
+        }
+
+        .smallImg img{
+            width : 100%;
+            height : 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigImg">
+        <img src="../img/1.png" id = "bigImg">
+    </div>
+    <div class="smallImg">
+        <div class="smallImg1">
+            <img src="../img/1.png" id = "smallImg1">
+        </div>
+        <div class="smallImg1">
+            <img src="../img/2.png" id = "smallImg2">
+        </div>
+    </div>
+
+    <script>
+        window.onload = function(){
+            var bigImg = document.getElementById("bigImg");
+            var smallImg1 = document.getElementById("smallImg1");
+            var smallImg2 = document.getElementById("smallImg2");
+
+            smallImg1.onclick = function(){
+                bigImg.src = "../img/1.png";
+            }
+
+            smallImg2.onclick = function(){
+                bigImg.src = "../img/2.png";
+            }
+        }
+    </script>
+</body>
+</html>

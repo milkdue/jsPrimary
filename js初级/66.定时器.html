@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        定时器
+            单次定时器
+                延迟效果
+                setTimeout(function(){}, time); window下的全局方法 
+                    两个参数 回调函数 和时间    单位毫秒
+                    定时器的操作是异步的          异步： 一边一边
+                                                多道
+
+            多次定时器
+                循环
+            清除定时器
+                清除单次
+                    clearTimeout(对象 即整个定时器)
+                清除多次
+                    clearInterval
+     -->
+     <script>
+         //单词定时器   延迟定时器
+         var a = 3;
+         var b = 4;
+         var c = a + b;
+         var timer = null;
+         timer = setTimeout(function(){
+            console.log(c);
+         }, 5000);
+         console.log("我什么时候执行");//异步同时执行 如果是同步就是等待延时执行完成
+         document.onclick = function(){
+            clearTimeout(timer);
+            console.log("清除定时器");
+         }
+     </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        children        获取子元素
+        childNode       获取子节点
+        parentNode      父节点 父标签
+        parentElement   父元素
+
+     -->
+</head>
+<body>
+    <div id="box">
+        <p>1</p>
+        <p>2</p>
+    </div>
+
+    <script>
+        var box = document.getElementById("box");
+        var htmlNode = document.documentElement;//获取html元素
+        var bodyNode = document.body;//获取body元素
+
+        for(var i = 0; i < box.childNodes.length; i++){
+            console.log(box.childNodes[i].nodeName, box.childNodes[i].nodeType, box.childNodes[i].nodeValue);//文本 类型 内容 类型码1是元素节点
+        }
+
+        console.log(htmlNode.childNodes);
+        console.log(bodyNode.childNodes);
+        //兼容获取元素的子元素
+        function getChildElement(obj){
+            var arr = [];
+            for(var i = 0; i < obj.children.length; i++){
+                if(obj.children[i].nodeType != 8){
+                    arr.push(obj.children[i]);
+                }
+            }
+
+            return arr;
+        }
+
+        console.log(bodyNode.parentNode);
+        console.log(bodyNode.parentElement);
+    </script> 
+</body>
+</html>

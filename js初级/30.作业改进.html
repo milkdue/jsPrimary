@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字符串反转
+        function stringReverse(str){
+            arr = str.split("");
+            arr.reverse();
+            return arr.join("");
+        }
+
+        console.log(stringReverse("iqiyoahz"));
+
+        //数组，字符串的替换操作
+        var arr = ["zhao", "li", "qi"];
+        arr.splice(2, 1, "ying");
+        console.log(arr);
+
+        //打印字符串中出现字母最多的次数和索引位置
+        var str = "rfafaefarqwerqrfwefqrtwyq3rf1fads";
+        var indexObj = {};
+        for(var i = 0; i < str.length; i++){
+            // if(indexObj[str[i]]){
+            //     indexObj[str[i]]++;
+            // }else{
+            //     indexObj[str[i]] = 1;
+            // }
+
+            indexObj[str[i]] ? indexObj[str[i]]++ : indexObj[str[i]] = 1;
+
+            // if(indexObj["arr_index_" + str[i]]){
+            //     indexObj["arr_index_" + str[i]].push(i);
+            // }else{
+            //     indexObj["arr_index_" + str[i]] = [i];
+            // }
+
+            indexObj["arr_index_" + str[i]] ? indexObj["arr_index_" + str[i]].push(i) : indexObj["arr_index_" + str[i]] = [i];
+        }
+        var max = 0;
+        var keyWords;
+        for(var n in indexObj){
+            if(typeof indexObj[n] == "number"){
+                if(max < indexObj[n]){
+                    max = indexObj[n];
+                    keyWords = n;
+                }
+            }
+        }
+
+        console.log(indexObj);
+        console.log("出现次数最多的是" + keyWords + ",一共出现" + indexObj[keyWords] + "次,索引数组是" + indexObj["arr_index_" + keyWords]);
+    </script>
+</body>
+</html>

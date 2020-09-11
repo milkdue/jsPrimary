@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        input{
+            visibility:hidden;
+            opacity: ;
+        }
+    </style> -->
+</head>
+<body>
+    <input type="text" value = "who are you?">
+    <script>
+        var box = document.querySelector("input");
+        box.onkeydown = function(enevt){
+            console.log(enevt.keyCode);//获取键盘码
+        }
+
+        box.onfocus = function(){
+            this.value = "i am die";
+            this.style.backgroundColor = "#bfa";
+        }
+
+        box.onblur = function(){
+            this.style.backgroundColor = "rgb(" + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ", " + Math.floor(Math.random() * 256) + ")";
+        }
+    </script>
+</body>
+</html>

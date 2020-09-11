@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            Object
+            基本数据类型的值在栈中存储
+            值之间是相互独立的
+            引用数据类型的值在堆中存储
+            创建对象就会在堆中开辟一块新的内存空间变量中存储的是堆内存地址
+            如果两个变量保存的同一个对象==保存同一个引用 指向同一个内存空间
+            比较两个引用数据类型时 比较的是内存地址
+
+            创建对象方式
+                var 对象名 = new Object({属性});
+                var 对象 = new Object();//不叫空对象 叫Object实例
+                var 对象名 = {};
+                第二种大括号里可以添加属性
+                    var obj = {
+                        属性名:值,
+                        属性名:值,
+                        ....
+                        属性名:值
+                    };
+                属性名可以不加引号 也可以加引号 特殊标识符必须加引号
+                键与值之间用分号分开
+                属性与属性之间用逗号分开
+                最后一个属性后不写逗号
+
+                工厂函数构造对象
+                function creatObject(形参){
+                    var abj = new Object();
+                    obj.属性 = 值;
+                    return obj;
+                }
+
+                对象中如果没有这个属性 访问就是undefined和数组一样
+        
+        */
+
+        var obj = {
+            name:"猪八戒",
+            age:28,
+            sex:"man",
+            text:{name:"沙和尚"}
+        };
+
+        console.log(obj);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

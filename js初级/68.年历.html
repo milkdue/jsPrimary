@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <span></span>
+    <script>
+    var spanNode = document.querySelector("span");
+    function getDateAndTime(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var sec = date.getSeconds();
+            return year + "年" + month + "月" + day + "日  " + hours + ":" + minutes + ":" + sec;
+        }
+    
+    setInterval(function(){
+        var str = getDateAndTime();
+        spanNode.innerHTML = "现在是：" + str;
+    }, 1000);
+
+    </script>
+</body>
+</html>

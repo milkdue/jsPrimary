@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组</title>
+</head>
+<body>
+    <script>
+        /*
+            数组：是一个具有相同类型或者不同类型的数据有序集合
+
+            定义
+                var 数组名 = [数组值列表];
+            构造函数定义法
+                var arr = new Array(数组值列表);
+            数组中的length  index
+        */
+        var arr = [1, 2, 3];
+        var i;
+        // console.log(arr.length);
+        // console.log(arr[1]);
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        //数组的增
+        //在末尾增加一个值
+        // arr[arr.length] = 4;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        // //在首部添加一个元素
+        // for(i = arr.length; i > 0; i--){
+        //     arr[i] = arr[i - 1];
+        // }
+        // arr[0] = 5;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        // //在中间下标为2添加
+        // for(i = arr.length; i > 2; i--){
+        //     arr[i] = arr[i - 1];
+        // }
+        // arr[2] = 6;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        // //删除中间下标为2的元素
+        // for(i = 2; i < arr.length - 1; i++){
+        //     arr[i] = arr[i + 1];
+        // }
+        // arr.length--;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        // console.log(arr.length);
+        // // 删除首端元素
+        // for(i = 0; i < arr.length - 1; i++){
+        //     arr[i] = arr[i + 1];
+        // }
+        // arr.length--;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+        // // 删除末端元素
+        // arr.length--;
+        // for(i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+        // }
+
+        // 冒泡排序
+        var arr3 = [88, 77, 99, 33, 24, 23, 42];
+        function bubbleSort(arr3){
+            for(i = 0; i < arr3.length - 1; i++){
+                for(var j = 0; j < arr3.length - 1 - i; j++){
+                    if(arr3[j] > arr3[j + 1]){
+                        var temp = arr3[j];
+                        arr3[j] = arr3[j + 1];
+                        arr3[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        // bubbleSort(arr3);
+        // console.log(arr3);
+
+        var arr4 = [2, 2, 4, 55, 66, 44, 2, 8, 9, 9, 23];
+        var arr5 = [];
+        bubbleSort(arr4);
+        arr5[arr5.length] = arr4[0];
+        for(i = 0; i < arr4.length; i++){
+            if(arr4[i] != arr5[arr5.length - 1]){
+                arr5[arr5.length] = arr4[i];
+            }
+        }
+
+        console.log(arr5);
+
+        function mergeArray(arr4, arr5){
+            for(i = 0; i < arr5.length; i++){
+                arr4[arr4.length] = arr5[i];
+            }
+        }
+        mergeArray(arr4, arr5);
+        console.log(arr4);
+    </script>
+</body>
+</html>

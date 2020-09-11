@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        函数
+            函数也是对象
+            函数可以封装一些功能
+        var fun = new Function();
+        typeof运算符返回function
+        将封装的代码以字符串的形式传递给构造函数
+        封装的代码不会立即执行 只有调用函数时执行
+        调用函数
+            函数对象();
+        函数对象具有所有对象的普通功能
+        可以添加属性等
+
+        使用函数声明来创建一个函数
+            语法
+                function 函数名([形参列表]){
+                    函数体
+                }
+                []表示可选 形参之间用逗号隔开
+
+        使用函数表达式创建一个函数
+                var 函数名 = Function(形参列表){
+                    语句;
+                };
+        调用函数时 浏览器不会检查实参的类型和数量 多余的实参不会被赋值
+        少的参数将是undefined
+        实参可是任意的数据类型
+        函数也可以作为实参
+
+        函数使用return返回一个值 return 以后的代码不会执行
+        return;
+        返回undefined
+        不加return也返回undefined
+        返回值可以是任意数据类型
+
+        立即执行函数
+        调用一次立即执行之后不用了
+        (function(参数列表){
+
+        })(参数列表);
+        立即执行函数
+        */
+        var fun = new Function("console.log('ajax')");
+        fun();
+        function f(){
+            console.log("111");
+        }
+
+        f();
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>

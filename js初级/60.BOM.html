@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        bom对象的顶级对象是window对象
+            1.location对象
+                window.location可以让用户获取当前页面地址(url)以及重定向到新的页面
+                location.href 可以读也可以写    写就是重定向
+            2.navigator
+                一个只读对象 它用来描述浏览器本身的信息 包括浏览器的名称 版本 语言 系统平台 用户特性字符串等信息
+                属性
+                    appName
+                    appVersion
+            3.screen
+                提供屏幕的宽度 高度 可用高度 可用宽度信息
+            4.history
+                对象包含浏览器的历史记录 window可用省略 这些历史记录以栈的形式保存 页面前则进入栈(FIFO) 页面返回则出栈
+                方法
+                    back(distance)      返回
+                    go(distance)        随便
+                    forward(distance)   往后
+
+     -->
+
+     <button>点击获取url</button>
+
+     <script>
+         var btn = document.querySelector("button");
+         btn.addEventListener("click", function(){
+            console.log(window.location.href);
+            console.log(location.href);
+            // window.location.href = "https://www.baidu.com";//重定向
+            console.log(location.href);
+            history.back(-1);
+            // history.go(-1);
+         })
+
+         console.log(navigator.appName);//应用名 一般是网景
+         console.log(navigator.appVersion);//浏览器内核信息
+         console.log(screen.width, screen.height, screen.availWidth, screen.availHeight);//可用宽度
+         
+     </script>
+</body>
+</html>

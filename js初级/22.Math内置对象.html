@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Math对象的使用：
+            round(四舍五入) floor(向下取整) random(随机数) 
+            ceil(向上取整) max min PI(3.1415926...) pow
+        
+        */
+
+        console.log(Math.round(1.2));
+        console.log(Math.floor(1.2));
+        console.log(Math.ceil(1.2));
+        console.log(Math.random());//生成0-1之间的小数 包括0不包括1
+        console.log(Math.max(1, 2, 5, 4, 6, 77, 33));
+        console.log(Math.min(1, 2, 5, 4, 6, 77, 33));
+        console.log(Math.PI);
+        console.log(Math.pow(2, 10));
+
+        //随机生成验证码
+        function generataCode(count){
+            var code = "qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDFGHJKLZXCVBNM";
+            var securityCode = "";
+            for(var i = 0; i < count; i++){
+                securityCode += code[Math.floor(Math.random() * code.length)];
+            }
+
+            return securityCode;
+        }
+        //生成随机数 在min和max之间
+        function generatarandom(min, max){
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        console.log(generataCode(8));
+
+        console.log(generatarandom(2, 44));
+    </script>
+</body>
+</html>

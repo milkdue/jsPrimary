@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            构造函数
+                通过构造函数实例化对象
+                构造函数也是函数 与函数定义相同 习惯上 构造函数使用大驼峰写法
+            this
+                this本质代表一个对象    函数的执行者
+                this在函数中表示window对象
+                this在对象方法中表示该对象
+                this在事件中 回调函数当中的this表示该事件
+                this在构造函数中表示实例化的对象
+
+            
+        */
+
+        var name = "zhangsan";
+        // console.log(window.name);
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+            this.eat = function(){
+                console.log("eat");
+            }
+        }
+
+        var p1 = new Person("li", 22);
+        console.log(p1);
+    </script>
+</body>
+</html>

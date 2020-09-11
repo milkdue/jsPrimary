@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>、
+        <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>男</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>19</td>
+            <td>男</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+        <tr>
+            <td>王五</td>
+            <td>20</td>
+            <td>女</td>
+            <td><a href="javascript:;">删除</a></td>
+        </tr>
+    </table>
+
+    <input type="text" placeholder="请输入姓名">
+    <br>
+    <input type="text" placeholder="请输入年龄">
+    <br>
+    <input type="text" placeholder="请输入性别">
+    <br>
+    <input type="button" value="添加" id="btn">
+
+    <script>
+        var inputTextList = document.querySelectorAll("input[type='text']");
+        var btnNode = document.querySelector("#btn");
+        var tbodyNode = document.querySelector("table tbody");
+
+        btnNode.addEventListener("click", function(event){
+            var name = inputTextList[0].value;
+            var age = inputTextList[1].value;
+            var sex = inputTextList[2].value;
+
+            if(name.trim() && age.trim() && sex.trim()){
+                var trNode = document.createElement("tr");
+                tbodyNode.appendChild(trNode);
+                var tdName = document.createElement("td");
+                tdName.innerText = name;
+                trNode.appendChild(tdName);
+                var tdAge = document.createElement("td");
+                tdAge.innerText = age;
+                trNode.appendChild(tdAge);
+                var tdSex = document.createElement("td");
+                tdSex.innerText = sex;
+                trNode.appendChild(tdSex);
+                var tdLink = document.createElement("td");
+                tdLink.innerHTML = '<a href="javascript:;">删除</a>';
+                trNode.appendChild(tdLink);
+
+                inputTextList[0].value = "";
+                inputTextList[1].value = "";
+                inputTextList[2].value = "";
+            }else{
+                alert("非法输入");
+            }
+            
+        })
+
+        tbodyNode.addEventListener("click", function(event){
+            event = event || window.event;
+            var aNode = event.target || event.srcElement;
+            判断是否拿到a节点
+
+            if(aNode.nodeName == "A"){
+                var aTrNode = aNode.parentElement.parentElement;
+                tbodyNode.removeChild(aTrNode);
+            }
+            
+        })
+
+    </script>
+</body>
+</html>

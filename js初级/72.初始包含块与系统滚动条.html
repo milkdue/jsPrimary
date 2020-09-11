@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        初始包含块
+            视口的第一屏大小
+        系统滚动条
+            overflow: 开启、关闭滚动条的开关
+            html和body这两个元素overflow的scroll属性 控制着系统的滚动条
+            系统的滚动条有两个 一个是body的 一个是document上的 我们平时看到的滚动条是document上的 
+                1.单独的给body或者html 设置scroll 滚动条打开的都是document的
+                2.两个元素都设置overflow属性 html设置hidden body设置scroll document关闭滚动条 body开启自己的滚动条
+                    反之系统开启滚动条 body关闭自身滚动条
+                3.都设置hidden两个滚动条均关闭
+                4.两个都打开 则html开启document滚动条 而body开启自己滚动条
+
+            禁用系统滚动条的方法
+                html,body{
+                    height: 100%;//相对初始包含块 只有内容超过才会出现隐藏或者出现滚动条 如果不设置 将由内容自动撑开 相当于不会溢出
+                    overflow: hidden;
+                }
+     -->
+</body>
+</html>

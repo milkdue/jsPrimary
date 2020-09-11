@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        /*
+            dom     文档对象模型
+            dom     是一个使程序和脚本有能力动态地访问和更新文档的内容 结构以及样式的平台和语言中立接口
+            dom     描述了处理网页内容的方法和接口
+
+            window是浏览器浏览器窗口对象所有的东西都被当做window的子对象
+
+            节点    元素    属性    文本    注释等
+            元素    标签
+            根元素  html标签
+            文档树  以html为root节点 形成一颗倒立的树
+                    这个树上的所有东西都是节点  节点有很多类
+                    这些节点如果我们通过DOM方法去获取或者其他的操作去使用的话 就叫DOM对象
+
+            window.onload   页面加载完成事件
+                一般情况下都是在等待页面加载完成之后去操作DOM元素 如果页面没有加载完成就去获取dom对象 有可能获取不到
+            
+            window.onload = function(){
+                等待页面加载完成 执行函数中的代码
+            }
+        */
+        window.onload = function(){
+            alert("hahaha");
+        }
+    </script>
+    <header>
+        <h1><a href="javascript:;><img src="" alt=""></a></h1>
+        <nav class = "navate">
+            <ul class = "list">
+                <li>首页</li>
+                <li>首页</li>
+                <li>首页</li>
+                <li>首页</li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <p>ppppppppppppppppp1</p>
+        <p>ppppppppppppppppp1</p>
+        <p>ppppppppppppppppp1</p>
+    </div>
+
+    <div class="footer">
+        <a href="#">baidu</a>
+        <a href="#">baidu</a>
+        <a href="#">baidu</a>
+        <a href="#">baidu</a>
+    </div>
+
+    <input type = "button" value = "点我" id = "btn">
+</body>
+</html>

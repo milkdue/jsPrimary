@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        img{
+            vertical-align: top;
+        }
+
+        .banner{
+            position: relative;
+            width: 590px;
+            height: 470px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+        .banner .bannerInner{
+            width: 3540px;
+            height: 470px;
+            display: flex;
+        }
+
+        .banner span{
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 40px;
+            background-color: rgb(243, 239, 239);
+            opacity: .1;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 2s;
+        }
+
+        .banner .icon{
+            position: absolute;
+            width: 110px;
+            height: 16px;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner .icon li{
+            /* box-sizing: border-box; */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color:rgba(255, 255, 255, .4);
+        }
+
+        .banner .icon li.radius{
+            background-color: white;
+            border: 3px solid rgba(0, 0, 0, .4);
+        }
+
+        .banner span.left{
+            left: 0;
+        }
+
+        .banner span.right{
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <ul class="bannerInner">
+            <li>
+                <img src="../img/京东轮播图/1.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/2.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/3.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/4.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/5.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/6.jpg">
+            </li>
+        </ul>
+        <ul class="icon">
+            <li class="radius"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="left"><</span>
+        <span class="right">></span>
+    </div>
+
+    <script>
+        window.onload = function(){
+            var leftNode = document.querySelector(".banner span.left");
+            var rightNode = document.querySelector(".banner span.right")
+            var iconList = document.querySelectorAll(".banner .icon li");
+
+            leftNode.onmouseenter = function(){
+                this.style.opacity = ".6";
+            }
+
+            rightNode.onmouseenter = function(){
+                this.style.opacity = ".6";
+            }
+
+            leftNode.onmouseleave = function(){
+                this.style.opacity = ".1";
+            }
+
+            rightNode.onmouseleave = function(){
+                this.style.opacity = ".1";
+            }
+
+            for(var i = 0; i < iconList.length; i++){
+                iconList[i].onclick = function(){
+                    for(var j = 0; j < iconList.length; j++){
+                        iconList[j].className = "";
+                    }
+                    this.className = "radius";
+                } 
+            }
+        }
+    </script>
+</body>
+</html>

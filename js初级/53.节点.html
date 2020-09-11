@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        以下都是父元素调用
+            插入节点： insertBefore(新节点，参照节点)
+            替换节点： replaceChild(新节点，被替换的节点)
+            删除节点： removeChild(删除的节点)
+            追加节点： appendChild(被追加的节点)
+                节点.remove(pc端 ie不支持)
+     -->
+</head>
+<body>
+    <ul class="singList">
+        <li>你的酒馆对我打了样</li>
+        <li>来自天堂的魔鬼</li>
+    </ul>
+
+    <script>
+        var ulNode = document.querySelector(".singList");
+        var liNode = document.createElement("li");
+        var liNode2 = document.createElement("li");
+        var liNode3 = ulNode.firstElementChild;
+        var liNode4 = liNode3.nextElementSibling;
+        liNode.innerText = "你是人间四月天";
+        ulNode.appendChild(liNode);
+        
+        liNode2.innerText = "泡沫";
+        ulNode.insertBefore(liNode2, liNode3);
+        var liNode5 = document.createElement("li");
+        liNode5.innerText = "魔鬼中的天使";
+        ulNode.replaceChild(liNode5, liNode4);
+        liNode5.remove();
+    </script>
+</body>
+</html>

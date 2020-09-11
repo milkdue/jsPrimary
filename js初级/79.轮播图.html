@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        .banner {
+            position: relative;
+            width: 590px;
+            height: 470px;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+        .banner .bannerInner {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 3540px;
+            height: 470px;
+            display: flex;
+        }
+
+        .banner span {
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            text-align: center;
+            line-height: 80px;
+            font-size: 40px;
+            background-color: rgb(243, 239, 239);
+            opacity: .1;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: opacity 2s;
+        }
+
+        .banner .icon {
+            position: absolute;
+            width: 110px;
+            height: 16px;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .banner .icon li {
+            /* box-sizing: border-box; */
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, .4);
+        }
+
+        .banner .icon li.radius {
+            background-color: white;
+            border: 3px solid rgba(0, 0, 0, .4);
+        }
+
+        .banner span.left {
+            left: 0;
+        }
+
+        .banner span.right {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <ul class="bannerInner">
+            <li>
+                <img src="../img/京东轮播图/6.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/1.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/2.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/3.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/4.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/5.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/6.jpg">
+            </li>
+            <li>
+                <img src="../img/京东轮播图/1.jpg">
+            </li>
+        </ul>
+        <ul class="icon">
+            <li class="radius"></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <span class="left"><</span>
+        <span class="right">></span>
+    </div>
+
+    <script>
+        window.onload = function () {
+            var leftNode = document.querySelector(".banner span.left");
+            var rightNode = document.querySelector(".banner span.right")
+            var iconList = document.querySelectorAll(".banner .icon li");
+            var bannerInnerNode = document.querySelector(".banner .bannerInner");
+            //设置定时
+            var timer = null;
+
+            leftNode.onmouseenter = function () {
+                this.style.opacity = ".6";
+            }
+
+            rightNode.onmouseenter = function () {
+                this.style.opacity = ".6";
+            }
+
+            leftNode.onmouseleave = function () {
+                this.style.opacity = ".1";
+            }
+
+            rightNode.onmouseleave = function () {
+                this.style.opacity = ".1";
+            }
+
+            // for (var i = 0; i < iconList.length; i++) {
+            //     iconList[i].onclick = function () {
+            //         for (var j = 0; j < iconList.length; j++) {
+            //             iconList[j].className = "";
+            //         }
+            //         this.className = "radius";
+            //     }
+            // }
+
+            // rightNode.onclick = function () {
+            //     // 移动一张图片的距离
+            //     var dis = -590;
+            //     // 设置过渡时间
+            //     var timeAll = 590;
+            //     // 设置移动一步的时间
+            //     var stepTime = 10;
+            //     // 移动一步所走的距离
+            //     var step = dis / timeAll * stepTime;
+            //     // 盒子最终的位置
+            //     var last = bannerInnerNode.offsetLeft + dis;
+            //     //设置定时
+            //     timer = setInterval(function () {
+            //         var left = bannerInnerNode.offsetLeft + step;
+            //         // 需要判断left和last是否有相等的可能 例如每次加20 不可能和590相等
+            //         if (left == last){
+            //             clearInterval(timer);
+            //         }
+            //             bannerInnerNode.style.left = left + "px";
+            //     }, stepTime);
+
+            // }
+
+            bannerInnerNode.style.left = -590 + "px";
+
+            rightNode.onclick = function(){
+                move(true);
+            }
+
+            leftNode.onclick = function(){
+                move(false);
+            }
+            // 将移动图片封装成一个函数
+            function move(flag){
+                if(flag){
+                    // 判断是向右移动还是向左移动
+                    var dis = -590;
+                }else{
+                    var dis = 590
+                }
+                // 设置移动一张图片所需要的时间
+                var timeAll = 590;
+                // 设置每步时间
+                var stepTime = 10;
+                // 计算每步走过的距离
+                var step = dis / timeAll * stepTime;
+                // 元素最终的位置
+                var last = bannerInnerNode.offsetLeft + dis;
+                // 开始循环定时
+                timer = setInterval(function(){
+                    // 定时器每循环一次 位置发生变化
+                    var left = bannerInnerNode.offsetLeft + step;
+                    // 判断是否已经移动到下一张图片
+                    if(left == last){
+                        clearInterval(timer);
+                        if(left == -4130){
+                            left = -590;
+                        }else if(left == 0){
+                            left = -3540;
+                        }
+                    }
+                    // 设置大盒子的位置
+                    bannerInnerNode.style.left = left + "px";
+                    
+                }, stepTime);
+
+                // 设置原点
+                var index = Math.abs(last / 590) - 1;
+                if(index < 0){
+                    index = 5;
+                }
+                for(var i = 0; i < iconList.length; i++){
+                    iconList[i].className = "";
+                }
+                iconList[index % 6].className = "radius";
+            }
+
+        }
+    </script>
+</body>
+
+</html>

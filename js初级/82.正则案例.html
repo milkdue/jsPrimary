@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 给一个字符串 里面含有2个到10个数字就打印 i love
+        var str = "43f23d";
+        var pat = /\d{2,10}/;
+        if(pat.test(str)){
+            document.write("i love <br>");
+        }
+
+        if(str.search(pat) != -1){
+            document.write("i love <br>");
+        }
+
+        // 判断手机号码是否合法
+        var str1 = "12345666789";
+        var pat1 =/^1[3-9]\d{9}$/;
+        document.write(pat1.test(str1) + "<br>");
+        // 判断邮箱是否合法
+        var str2 = "233244134@sina.cn";
+        var pat2 = /^\w{6,10}@(qq|163|126|sina)\.(cn|com)$/;
+        document.write(pat2.test(str2) + "<br>");     //()分组|表示或
+
+        // 将手机号的中间四位替换为****
+        var str3 = "15355554525";
+        // 使用捕获 
+        var pat3 = /\d{3}(\d{4})\d{4}/;
+        document.write(str3.match(pat3) + "<br>");
+        document.write(str3.replace(str3.match(pat3)[1],"****") + "<br>");
+        // 将身份证号后四位替换为****
+        var str4 = "612420199711121248";
+        var pat4 = /\d{14}(\d{4})/;
+        document.write(str4.match(pat4) + "<br>");
+        document.write(str4.replace(str4.match(pat4)[1],"****") + "<br>");
+
+        // 将文章中的电话号码打印
+        var str5 = "qrerqr15219152470fhqfhqf15249152404fadjf1314ajfafa54er16426581347";
+        var pat5 = /1[3-9]\d{9}/g;
+        document.write(str5.match(pat5) + "<br>");
+        // 判断是否是网站
+        var str6 = "https://www.baidu.com";
+        var pat6 = /^https?:\/\/\w{3}\.\w+\.(com|cn|club)$/
+        var pat7 = /(http|https):\/\/\w{3}\.\w+\.(com|cn|club)/;
+        document.write(pat7.test(str6) + "<br>");
+        document.write(str6.search(pat6));
+    </script>
+</body>
+</html>

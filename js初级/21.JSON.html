@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            json通常情况下说的是字符串也叫json串 前后端数据交换的方式 小写json 大写JAON表示内置对象
+            在前端json串的格式就是对象或者对象的数组 只不过要把这些数据转化为字符串形式
+
+
+            JSON是js的一个内置对象 里面封装了对json格式数据的操作方法
+            json是一种数据格式 是前后端目前数据交互的主要格式
+
+
+            JSON对象的方法： parse(解析json串) stringify(将对象或对象的数组字符串化)
+        */
+
+        var dataTest = {
+            name : "zhao",
+            age : 32
+        };
+
+        var dataTestArr = [{name : "zhao" , age : 32}, {name : "hu", age : 22}];
+        //将对象json化 字符串化
+        var dataStr = JSON.stringify(dataTest);
+        console.log(typeof dataStr);
+        console.log(dataStr);
+
+        var dataStr1 = JSON.stringify(dataTestArr);
+        console.log(typeof dataStr1);
+        console.log(dataStr1);
+
+        var data = JSON.parse(dataStr1);
+        console.log(typeof data);
+        console.log(data);
+    </script>
+</body>
+</html>

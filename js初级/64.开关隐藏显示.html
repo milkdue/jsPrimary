@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <button>显示/隐藏</button>
+    <script>
+        var btn = document.querySelector("button");
+        //id可以不用获取使用 但建议获取后使用
+        var flag = true;
+        btn.addEventListener("click", function(event){
+            flag = !flag;
+            if(flag == false){
+                box.style.display = "none";
+            }else{
+                box.style.display = "block";
+            }  
+        })
+    </script>
+</body>
+</html>

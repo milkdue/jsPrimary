@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+            数据类型
+                js中一共6种数据类型
+                    String      字符串
+                    Number      数值
+                    Boolean     布尔类型
+                    Null        空值
+                    Undefined   未定义
+                    Object      对象
+                    除了Object其他5种都是基本数据类型
+                    Object属于引用数据类型
+                
+            var str = "hello"  
+                字符串必须使用引号
+                单引号和双引号都可以
+                引号不能嵌套
+                单引号中可以使用双引号
+                可以使用\表示转义字符
+                \n  换行
+                \t  tab
+                \'  单引号
+                \"  双引号
+                \\  \
+            typeof  变量值  返回变量的数据类型
+            js中所有的数值都是Number类型
+                var a = 1.1;
+                js中Number可以表示的最大值
+                        Number.MAX_VALUE
+                            1.7976931348623157e+308
+                        如果使用Number超过了最大值 会返回Infinity 表示正无
+                            Infinity
+                            -Infinity
+                        NaN表示Not A Number
+                js中Number可以表示的最小的小数
+                        Number.MIN_VALUE
+                    Js浮点数
+            
+            Boolean 布尔值
+                布尔值只有两个 true 逻辑真 false 逻辑假
+                var bool = true;
+            Null
+                空值
+                只有一个null
+                var a = null;
+                专门表示一个空对象
+                使用typeof a返回object类型
+            Undefined类型的值只有一个 就是undefined
+                未定义
+                当声明一个变量不给他赋值时 它的值就是undefined
+                var a;
+                var b = undefined
+
+                强制类型转换
+                    将一个数据类型强制转换为其他数据类型
+
+                    转换为String
+                        var a = 123;
+                            方式1：
+                                调用被转换数据类型的toString()方法
+                                a.toString();
+                                该方法方法返回一个字符串类型的值 不会改变原来的数据类型
+                                不可以转换Null和Undefined类型
+                            方式2：
+                                调用String()方法变量作为参数
+                                    String(a)返回String类型数值
+                                    将null转换为null字符串
+                                    将undefined转换为字符串
+                    转换为Number
+                        var a = "123";
+                            方式1：
+                                调用Number()函数 变量作为参数 返回数值类型
+                                非数字内容转换为NaN
+                                空串转换为0
+                                true转换为1 false转换0
+                                null转换为0
+                                undefined转换为0
+                            方式2：
+                                专门转化字符串
+                                    parseInt(a)
+                                    将字符串中的有效数字转换为数值返回数值类型
+                                    a = parseInt(a);
+                                    不可以取出小数
+                                    parseFloat(a)
+                                    可以取出小数
+
+                                    如果对非字符串使用parseInt和parseFloat会先转换为字符串然后进行转换
+
+                    进制
+                        16进制      以0x开头
+                            var a = 0x4812;
+                        8进制       以0开头
+                            var a = 071;
+                        2进制       以0b开头 兼容性不好
+                            var a = 0b10;
+
+                    像"070"这种字符串 有的浏览器会按照十进制解析 有的浏览器会按照八进制解析
+                    使用 parseInt(a, 10)表示浏览器按照十进制解析
+                    parseInt(a, 8)表示8进制转换
+                    
+            转换为Boolean类型
+                调用Boolean()函数转换
+                    非0为真
+                    0为假 null 空串 undefined NaN也为假 
+                    对象也会转换为真
+
+
+
+        */
+
+
+        var str = "1.1";
+        var a = 1.1;
+        var b = Number.MAX_VALUE;
+        var c = null;
+        var d;
+        b = Infinity;
+        str = "str" * "str";
+        document.write(typeof str);
+        document.write(str);
+        document.write(typeof a);
+        document.write(a);
+        console.log(b);
+        console.log(typeof c);
+        console.log(typeof d);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        第二种拖拽
+            原理
+                left = 鼠标移动后x的位置 - 元素移动前相对于自身的x位置
+                top = 鼠标移动后y的位置 - 元素移动前相对于自身的y位置
+     -->
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">luming</div>
+    <script>
+        window.onload = function(){
+            var boxNode = document.getElementById("box");
+            boxNode.onmousedown = function(event){
+                event = event || window.event;
+                // var eleX = boxNode.offsetLeft;
+                // var eleY = boxNode.offsetTop;
+                // var startX = event.clientX;
+                // var startY = event.clientY;
+                var setX = event.offsetX;
+                var setY = event.offsetY;
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var endX = event.clientX;
+                    var endY = event.clientY;
+                    var disX = endX - setX;
+                    var disY = endY - setY;
+
+                    boxNode.style.left = disX + "px";
+                    boxNode.style.top = disY + "px";
+                }
+
+                // boxNode.onmouseup = function()
+                document.onmouseup = function(){
+                    document.onmousemove = document.onmouseup = null;
+                    //boxNode.releaseCapture && boxNode.releaseCapture();//ie8以下清除捕获
+                }
+
+                return false;//dom0事件清除默认事件
+                //dom2事件使用event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

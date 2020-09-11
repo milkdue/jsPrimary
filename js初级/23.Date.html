@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            Date对象api
+        */
+
+        var date = new Date();
+        console.log(date);
+        console.log(date.getFullYear());
+        console.log(date.getMonth() + 1);//默认0-11代表1-12月
+        console.log(date.getDate());
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+        console.log(date.toLocaleDateString());
+        console.log(date.toLocaleTimeString());
+        console.log(date.getTime());//得到1970.1.1日到现在的毫秒
+
+        // 封装一个日期
+        function getDateAndTime(){
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var sec = date.getSeconds();
+            return year + "年" + month + "月" + day + "日  " + hours + ":" + minutes + ":" + sec;
+        }
+
+        console.log(getDateAndTime());
+    </script>
+</body>
+</html>

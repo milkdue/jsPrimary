@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        事件冒泡的好处就是可以进行事件委派(事件委托 事件代理)
+        事件委派的用法
+            出现新添加的东西 并且新添加的东西要和老的拥有同样的行为 此时使用事件委派
+        事件委派的做法
+            给父元素添加事件 不给元素添加 事件发生后通过父元素去找 真正发生事件的元素去处理
+     -->
+     <input type="text" placeholder="输入你的爱好">
+    <ul class="hobyList"></ul>
+    <script>
+        var inputNode = document.querySelector("input");
+        var ulNode = document.querySelector(".hobyList");
+        inputNode.onkeyup = function(event){
+            if(event.keyCode == 13){
+                //拿到文本
+                var valueStr = inputNode.value;
+                if(valueStr.trim()){//字符串方法 去除两边的空格
+                    var liNode = document.createElement("li");
+                    liNode.innerText = valueStr;
+                    ulNode.appendChild(liNode);
+                    ulNode.onmouseover = function(event){
+                        //在里面寻找发生事件的子元素
+                        var liNode = event.target;//target--目标元素
+                        liNode.style.backgroundColor = "skyblue";
+                    }
+                    ulNode.onmouseout = function(event){
+                        //在里面寻找发生事件的子元素
+                        var liNode = event.target;//target--目标元素
+                        liNode.style.backgroundColor = "transparent";
+                        console.log(liNode);
+                    }
+
+
+                }else{
+                    alert("输入不合法");
+                }
+                inputNode.value = "";
+            }
+        }
+    </script>
+</body>
+</html>

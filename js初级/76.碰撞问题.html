@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        第一种拖拽
+            原理
+                left = 鼠标前后x位置的差值 + 元素移动前本身的x位置
+                top = 鼠标前后y位置的差值 + 元素移动前本事的y位置
+
+     -->
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #box{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+
+        img{
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            margin: auto;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <img src="../img/1.png">
+    <script>
+        window.onload = function(){
+            var boxNode = document.getElementById("box");
+            var imgNode = document.querySelector("img");
+            boxNode.onmousedown = function(event){
+                event = event || window.event;
+                var eleX = boxNode.offsetLeft;
+                var eleY = boxNode.offsetTop;
+                var startX = event.clientX;
+                var startY = event.clientY;
+                //ie8以下   默认行为必须设置捕获   元素发生事件以后 鼠标的所有行为都被捕获到调用的元素上 一旦设置 其他操作一律不可执行 甚至无法退出 所有必须清除捕获
+                //boxNode.setCapture && boxNode.setCapture();
+                //boxNode.onmousemove = function(event)速度过快会导致计算机跟随不上 脱离box后无法控制 所以改为document利用事件冒泡解决
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var endX = event.clientX;
+                    var endY = event.clientY;
+                    var disX = endX - startX + eleX;
+                    var disY = endY - startY + eleY;
+
+                    boxNode.style.left = disX + "px";
+                    boxNode.style.top = disY + "px";
+
+                    //图片的四个边界
+                    var limitLeft = imgNode.getBoundingClientRect().left;
+                    var limitRignt = imgNode.getBoundingClientRect().left + imgNode.offsetWidth;
+                    var limitTop = imgNode.getBoundingClientRect().top;
+                    var limitBottom = imgNode.getBoundingClientRect().top + imgNode.offsetHeight;
+                    //条件位置
+                    var conditionLeft = disX + boxNode.offsetWidth;
+                    var conditionRight = disX;
+                    var conditionTop = disY + boxNode.offsetHeight;
+                    var conditionBottom = disY;
+
+                    if(conditionLeft < limitLeft || conditionRight > limitRignt || conditionTop < limitTop || conditionBottom > limitBottom){
+                        imgNode.src = "../img/1.png";
+                    }else{
+                        imgNode.src = "../img/2.png";
+                    }
+
+                }
+
+                // boxNode.onmouseup = function()
+                document.onmouseup = function(){
+                    document.onmousemove = document.onmouseup = null;
+                    //boxNode.releaseCapture && boxNode.releaseCapture();//ie8以下清除捕获
+                }
+
+                return false;//dom0事件清除默认事件
+                //dom2事件使用event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

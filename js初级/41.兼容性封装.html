@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>hahah</p>
+    <script>
+        var pNode = document.querySelector("p");
+        function setOrGetContent(obj, content){
+            if(arguments.length == 2){
+                if(obj.contenText){
+                    //高版本浏览器
+                    obj.contenText = content;
+                }else{
+                    obj.innerText = content;
+                }
+            }else{
+                if(obj.contenText){
+                    //高版本浏览器
+                    console.log(obj.contenText);
+                }else{
+                    console.log(obj.innerText);
+                }   
+            }
+        }
+
+        setOrGetContent(pNode, "heihei");
+        setOrGetContent(pNode);
+    </script>
+</body>
+</html>

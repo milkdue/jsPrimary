@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        .nav{
+            position: relative;
+            width: 200px;
+            height: 150px;
+            background-color: silver;
+            border: 1px solid red;
+        }
+
+        .nav>li{
+            box-sizing: border-box;
+            width: 200px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-bottom: 1px solid red;
+        }
+
+        .nav>li:last-child{
+            border: none;
+        }
+
+
+        .nav>li>a{
+            text-decoration: none;
+            color: black;
+        }
+
+        .nav>li .navIn{
+            position: absolute;
+            display: none;
+            left: 201px;
+            top: 0;
+            width: 400px;
+            height: 300px;
+            background-color: skyblue;
+        }
+
+        .nav>li .navIn>li{
+            width: 400px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="javascript:;">服装</a>
+            <ul class="navIn">
+                <li>上衣</li>
+                <li>上衣</li>
+                <li>上衣</li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">服装</a>
+            <ul class="navIn">
+                <li>中衣</li>
+                <li>中衣</li>
+                <li>中衣</li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">服装</a>
+            <ul class="navIn">
+                <li>下衣</li>
+                <li>下衣</li>
+                <li>下衣</li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        window.onload = function(){
+            var liList = document.querySelectorAll(".nav>li");
+            var liInList = document.querySelectorAll(".nav>li .navIn");
+
+            for(var i = 0; i < liList.length; i++){
+                liList[i].index = i;
+                liList[i].onmouseenter = function(){
+                    for(var j = 0; j < liInList.length; j++){
+                        liInList[j].style.display = "none";
+                    }
+                    liInList[this.index].style.display = "block";
+                }
+
+                liList[i].onmouseleave = function(){
+                    for(var k = 0; k < liInList.length; k++){
+                        liInList[k].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

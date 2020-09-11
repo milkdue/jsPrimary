@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        DOM0事件绑定和解绑
+        DOM2事件绑定和解绑
+            可以添加同一类事件多次
+            高级浏览器和ie绑定方式(兼容封装)
+        
+        DOM0事件的绑定和解绑
+            on
+            存储回调函数的变量为空  本质上把事件函数和事件对象的事件属性断开指向
+            DOM0事件不可以对同元素添加同种事件 添加就是覆盖操作
+            所有的浏览器可以使用
+        DOM2事件的绑定和解绑
+            可以对同元素添加多个同种事件
+            addEventListener()高级浏览器可以使用 ie10以下不兼容
+            ie10以下给了另外的绑定方式
+
+     -->
+     <input type="button" value="点击绑定事件">
+     <input type="button" value="点击解绑事件">
+     <input type="button" value="点击绑定事件">
+     <input type="button" value="点击解绑事件">
+     <input type="button" value="点击绑定事件">
+     <input type="button" value="点击解绑事件">
+     <script>
+         var btnList = document.querySelectorAll("input");
+
+         btnList[0].onclick = function(){
+             console.log("hahaha1")
+         }
+
+         btnList[0].onclick = function(){
+             console.log("haeiheijhe1")
+         }
+
+         btnList[1].onclick = function(){
+             btnList[0].onclick = null;//将对象的值为空 没有回调函数
+         }
+
+         btnList[2].addEventListener("click", function(){
+             console.log("DOM2事件");
+         }, false);//添加事件监听 三个参数 type事件类型 回调函数 事件冒泡
+
+         function fn(){
+             console.log("DOM2事件第二次");
+         }
+
+         btnList[2].addEventListener("click", fn, false);//第二次添加事件监听   DOM0事件也可以这样赋值回调函数
+         //dom2事件解绑
+         btnList[3].addEventListener("click", function(){
+            btnList[2].removeEventListener("click", fn, false);//参数对应解绑
+         }, false);
+         //ie10以下
+        //  btnList[4].attachEvent("onclick", fn);
+         //ie解绑事件
+        //  btnList[4].detachEvent("onclick", fn);
+     </script>
+</body>
+</html>

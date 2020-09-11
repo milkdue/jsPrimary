@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px auto;
+            text-align: center;
+            font-size: 50px;
+            line-height: 400px;
+            color: greenyellow;
+            transition: 2s;
+        }
+
+        #box .top,#box .bottom{
+            position: absolute;
+            width: 0;
+            height: 40px;
+            background-color: skyblue;
+            transition: 2s;
+        }
+
+        #box .top{
+            top: 0;
+            left: 0;
+        }
+
+        #box .bottom{
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var box = document.getElementById("box");
+            var topNode = document.querySelector("#box .top");
+            var bottomNode = document.querySelector("#box .bottom");
+
+            box.onmouseenter = function(){
+                topNode.style.width = "400px";
+                bottomNode.style.width = "400px";
+                this.style.backgroundColor = "greenyellow";
+                this.style.color = "pink";
+            }
+
+            box.onmouseleave = function(){
+                topNode.style.width = "0px";
+                bottomNode.style.width = "0px";
+                this.style.backgroundColor = "pink";
+                this.style.color = "greenyellow";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="box">
+        陕西安康
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+</html>

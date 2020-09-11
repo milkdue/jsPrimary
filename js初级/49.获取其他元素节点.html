@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <ul id="list">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+    <script>
+        /*
+            第一个节点          firstChild
+            第一个元素节点      firstElementChild
+            最后一个节点        lastChild
+            最后一个元素节点    lastElementChild
+            前一个节点          previousSibling
+            前一个元素节点      previousElementSibling
+            下一个节点          nextSibling
+            下一个元素节点      nextElementSibling
+
+            元素节点只有高级浏览器才可以获取
+        */
+
+        var list = document.getElementById("list");
+        console.log(list.firstChild);
+        console.log(list.firstElementChild);
+        console.log(list.lastChild);
+        console.log(list.lastElementChild);
+        console.log(list.previousSibling);
+        console.log(list.previousElementSibling);
+        console.log(list.nextSibling);
+        console.log(list.nextElementSibling);
+
+        function getFirstElement(obj){
+            if(obj.firstElementChild){
+                //高级浏览器
+                return obj.firstElementChild;
+            }else{
+                //低级浏览器
+                var testNode = obj.firstChild;
+                while(testNode && testNode.nodeType != 1){
+                    testNode = testNode.nextSibling;
+                }
+
+                if(textNode){
+                    return testNode;
+                }
+            }
+        }
+
+
+        console.log(getFirstElement(list));
+    </script>
+</body>
+</html>

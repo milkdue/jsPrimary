@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html,body{
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #box{
+            position: absolute;
+            left: 850px;
+            top: 400px;
+            width: 200px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+        window.onload = function(){
+            var boxNode = document.getElementById("box");
+            boxNode.onmousedown = function(event){
+                event = event || window.event;
+                var eleX = boxNode.offsetLeft;
+                var eleY = boxNode.offsetTop;
+                var startX = event.clientX;
+                var startY = event.clientY;
+                //ie8以下   默认行为必须设置捕获   元素发生事件以后 鼠标的所有行为都被捕获到调用的元素上 一旦设置 其他操作一律不可执行 甚至无法退出 所有必须清除捕获
+                //boxNode.setCapture && boxNode.setCapture();
+                //boxNode.onmousemove = function(event)速度过快会导致计算机跟随不上 脱离box后无法控制 所以改为document利用事件冒泡解决
+                document.onmousemove = function(event){
+                    event = event || window.event;
+                    var endX = event.clientX;
+                    var endY = event.clientY;
+                    var disX = endX - startX + eleX;
+                    var disY = endY - startY + eleY;
+
+                    if(disX < 100){
+                        disX = 0;
+                    }else if(disX > document.documentElement.clientWidth - boxNode.offsetWidth - 100){
+                        disX = document.documentElement.clientWidth - boxNode.offsetWidth;
+                    }
+
+                    if(disY < 100){
+                        disY = 0;
+                    }else if(disY > document.documentElement.clientHeight - boxNode.offsetHeight - 100){
+                         disY = document.documentElement.clientHeight - boxNode.offsetHeight;
+                     }
+
+
+                    boxNode.style.left = disX + "px";
+                    boxNode.style.top = disY + "px";
+                }
+
+                // boxNode.onmouseup = function()
+                document.onmouseup = function(){
+                    document.onmousemove = document.onmouseup = null;
+                    //boxNode.releaseCapture && boxNode.releaseCapture();//ie8以下清除捕获
+                }
+
+                return false;//dom0事件清除默认事件
+                //dom2事件使用event.preventDefault();
+            }
+        }
+    </script>
+</body>
+</html>

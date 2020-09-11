@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            apply/call方法  改变方法的执行者    一个对象的方法由另一个不同类的对象调用
+
+            apply方法   
+                两个参数 第一个是改变的执行者 第二个是方法的参数 参数必须使用数组的方式传递
+
+            call方法
+                和apply方法一样 不同的是 方法的参数不需要使用数组的方式传递
+
+            使用方式：
+                对象.方法.call/apply(执行者， 方法参数)；
+                如果是window可以不写
+        */
+
+        function Person(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        function add(a, b){
+            return a + b;
+        }
+
+        var p1 = new Person("li", 19);
+
+        console.log(window.add.apply(p1, [12, 4]));
+        console.log(window.add.call(p1, 12, 4));
+        
+    </script>
+</body>
+</html>

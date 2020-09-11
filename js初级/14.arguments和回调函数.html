@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            函数的形参其实可以不写 函数的实际参数默认都会传给arguments伪数组
+            arguments常常用于一个函数根据参数个数的不同实现不同的功能   多态
+
+            回调函数
+                一般就是将函数作为参数传递到另一个函数由参数间接调用函数
+                但真正的回调函数必须满足
+                    函数是我定义的
+                    我没有调用这个函数
+                    函数执行了
+        */
+
+        function add(){
+            // console.log(arguments);
+            return arguments[0] + arguments[1];
+        }
+
+        console.log(add(3, 5));
+
+        function addOrBad(a, b, c){
+            if(arguments.length == 2){
+                return a - b;
+            }else if(arguments.length == 3){
+                return a + b + c;
+            }
+        }
+        console.log(addOrBad(5, 2));
+        console.log(addOrBad(5, 2, 7));
+
+        function f1(fn){
+            var a = 5;
+            var b = 3;
+            console.log("hahaha");
+            console.log(fn(a, b));
+        }
+
+        f1(add);
+    </script>
+</body>
+</html>

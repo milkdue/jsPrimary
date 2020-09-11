@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" disabled="disabled" value="阅读协议(5s)">
+    <script>
+        var btnNode = document.querySelector("input");
+        var num = 5;
+        var timer = null;
+        timer = setInterval(function(){
+            num--;
+            btnNode.value = "阅读协议(" + num + "s)";
+            if(num == 0){
+                clearInterval(timer);
+                btnNode.disabled = false;
+                btnNode.value = "阅读协议";
+            }
+        }, 1000);
+
+        
+    </script>
+</body>
+</html>

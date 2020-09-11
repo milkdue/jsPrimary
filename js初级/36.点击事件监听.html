@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            background-color : red;
+        }
+    </style>
+</head>
+<body>
+    <p class = "pa">1</p>
+    <p class = "pa">2</p>
+    <p class = "pa">3</p>
+    <p class = "pa">4</p>
+    <script>
+        window.onload = function(){
+            var pArr = document.getElementsByClassName("pa");
+            pArr = document.getElementsByTagName("p");
+            for(var i = 0; i < pArr.length; i++){
+                pArr[i].onclick = function(){
+                    for(var j = 0; j < pArr.length; j++){
+                        pArr[j].innerHTML = "hahahah";
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

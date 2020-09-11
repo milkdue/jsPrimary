@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 
+        正则表达式
+            描述字符模式的对象
+            正则表达式用于对字符串模式匹配及检测替换，是对字符串执行模式匹配的强大工具
+            正则就是一种字符串匹配的规则
+        创建方式
+            字面量创建
+                var patt = /pattern/modifiers;
+            构造函数创建
+                var patt = new RegExp(pattern, modifiers);
+                pattern(模式)描述表达式的模式
+                modifiers(修饰符)用于指定全局匹配、区分大小写的匹配和多行匹配
+            注意：当使用构造函数创建正则对象时，需要常规的字符转义规则(在前面加反斜杠、)。比如
+            var re = new RegExp("\\d+");
+            var re = /\d+/;             \d代表一个规则 一个数字
+        正则表达式规则写法
+            修饰符(modifiers)
+                修饰符用于执行区分大小写和全局匹配：
+                    i:忽略大小写(ignore)
+                    g:执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）(global)
+                    m:执行多行匹配
+            方括号
+                方括号用于查找某个范围的字符
+                    [abc]       查找abc三个字符中的任意一个
+                    [^abc]      查找不是abc的任意一个字符
+                    [0-9]       查找任意一个数字等价于\d
+                    [a-z]       查找任意一个小写字母
+                    [A-Z]       查找任意一个大写字母
+            元字符
+                    .           匹配任意字符不包含\n(换行和结束符)
+                    \d          任意数字    等价于[0-9]
+                    \D          任意非数字  等价于[^0-9]
+                    \w          任意单词字符 数字 字母 下划线  等价
+                    \W          任意非单词字符 数字 字母 下划线  等价[^a-z A-Z 0-9]
+                    \s          任意的空白字符
+                    \S          任意非空白字符
+                    \b          单词边界
+                    \B          非单词编辑
+                    \n          换行
+                    \f          换页
+                    \r          回车
+                    \t          制表
+                    \v          垂直制表
+            量词
+                    +           一个或者多个前一个字符      \d+
+                    *           0个或者多个前一个字符       \d*
+                    ?           0个或者1个前一个字符        \d?
+                    {n}         n个前一个字符               \d{11}
+                    {m,n}       m到n个前一个字符            \d{2,4}
+                    {m,}        至少m个前一个子字符         \d{2,}
+                    $           结尾                        
+                    ^           开头
+                    ^\d{11}$    以11个数字开头 以11个数字结尾   严格匹配
+            分组
+                    ()分组后的反向引用  (\d{11})\1
+                    1表示分组的编号     \d{11}\d{11}    不能表示前面11个数字和后面的11个数字相同
+                    使用分组可以解决这个问题
+            贪婪和非贪婪
+                    量词后面的?代表非贪婪
+            
+            规则举例
+                /\d/        数字
+                /1234/      1234
+                /^\d{11}$/  11位数字
+
+
+            正则对象的方法
+                Reg.test()
+                    用于检测字符串中是否匹配某个模式 匹配返回true 否则返回false
+                Reg.exec()
+                    用于检索字符串中的正则表达式的匹配
+                    返回一个数组 其中存放匹配的结果 未找到返回null
+                    此方法只会返回一个结果 如果要找到所有的，需要使用循环 并且全局修饰
+                str.match()
+                    在字符串中搜索符合规则的内容，搜索成功就返回内容，格式是数组 不加g是一次 加g全局
+                    找一个是详细展示 多个是内容
+                str.search()
+                    在字符串搜索符合正则的内容 搜索到返回出现的位置(从0开始 如果匹配不只是一个字母 只会返回第一个字符的位置 搜索失败返回-1只能返回一次)
+                str.replace()
+                    查找符合正则的字符串，就替换成对应的字符串。返回替换后的字符串
+
+     -->
+</head>
+<body>
+    <script>
+        // 正则创建
+        var str = "qwehrfweqrjqefasdnf_%!#!jfafjaf";
+        var str2 = "1233a33";
+        // var patt = /\d/;
+        patt = /\d+/;//代表一个数字或者多个数字
+        // patt = /./;//任意一个字符
+        var patt3 = /[abc]/;
+        var patt2 = new RegExp("\\d");
+        patt3 = /\w+/g;//1个或多个字符   默认都是贪婪模式即多个 非贪婪是少
+        // 方法 test  使用正则去检测字符串是否符合规则
+        console.log(patt.test(str));
+        console.log(patt2.test(str));
+        console.log(patt3.test(str2));
+        // console.log(patt3.exec(str));
+        // 循环找
+        // var result = patt3.exec(str);
+        // console.log(result);
+        // while(result != null){
+        //     result = patt3.exec(str);
+        //     if(result == null){
+        //         break;
+        //     }
+        //     console.log(result);
+        // }
+
+        console.log(str.match(patt3));
+
+    </script>
+</body>
+</html>

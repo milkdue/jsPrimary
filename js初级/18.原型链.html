@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  
+            作用域链
+                查找变量的过程
+            原型链
+                对象查找属性的过程
+            
+            当一个构造函数实例化一个对象后 利用对象调用属性 现在自己身上寻找属性 如果找不到 就在自己的构造函数的原型对象中找 如果找到就停止 如果找不到 继续找它构造函数的原型对象的构造函数的原型对象中寻找 找到就停止 找不到
+            继续直到找到Object的构造函数的原型对象中寻找 找到就停止 找不到就报错
+        */
+        function Singer(name, age){
+            this.name = name;
+            this.age = age;
+        }
+
+        Object.prototype.sing = function(){
+            console.log("我唱歌很好听");
+        };
+
+        var singer1 = new Singer("ju", 18);
+        var singer2 = new Singer("hua", 52);
+        console.log(singer1);
+        console.log(singer2);
+        singer1.sing();
+        singer2.sing();
+    </script>
+</body>
+</html>

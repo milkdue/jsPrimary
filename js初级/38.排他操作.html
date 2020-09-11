@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var pList = document.querySelectorAll("p");
+            for(var i = 0; i < pList.length; i++){
+                pList[i].onclick = function(){
+                    for(var j = 0; j < pList.length; j++){
+                        pList[j].innerHTML = "keyi";
+                    }
+                    this.innerHTML = "shuang";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <p style = "background-color : red;">haha</p>
+    <p style = "background-color : red;">haha</p>
+    <p style = "background-color : red;">haha</p>
+    <p style = "background-color : red;">haha</p>
+    <p style = "background-color : red;">haha</p>
+</body>
+</html>

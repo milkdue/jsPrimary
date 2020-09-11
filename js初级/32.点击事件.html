@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            width : 400px;
+            height: 400px;
+            background-color : red;
+        }
+
+        .sb{
+            background-color : skyblue;
+        }
+    </style>
+</head>
+<body>
+    <button id = "btn">点我加数</button>
+    <br>
+    <img src="../img/1.png" id = "img">;
+    <br>
+    <a href="https://www.baidu.com" id = "link" target = "_blank">baidu</a>
+    <br>
+    <input type="checkbox" id = "check">
+    <p aa = "bb" id = "ps">lijinyi</p>
+    <script>
+        //  window.onload = function(){
+            // var num = 0;
+            // var btn = document.getElementById("btn");
+            // btn.onclick = function(){
+            //     alert(++num);
+            // }
+        //  }
+
+        // window.onload = function(){
+        //     var imgNode = document.getElementById("img");
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick = function(){
+        //         imgNode.src = "../img/2.png";
+        //     }
+        // }
+
+        // window.onload = function(){
+        //     var linkNode = document.getElementById("link");
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick = function(){
+        //         linkNode.href = "https://taobao.com";
+        //     }
+        // }
+
+        // window.onload = function(){
+        //     var check = document.getElementById("check");
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick = function(){
+        //         check.checked = true;
+        //     }
+        // }
+        // window.onload = function(){
+        //     var ps = document.getElementById("ps");
+        //     var btn = document.getElementById("btn");
+        //     btn.onclick = function(){
+        //         ps.aa = "cc";//没法改变自己定义的属性
+        //         ps.setAttribute("aa", "cc");//自己定义的属性可以更改
+        //         console.log(ps.aa);//使用getAttribute方法可以获取自定义属性的值
+        //         console.log(ps.getAttribute("aa"));
+        //     }
+        // }
+
+        window.onload = function(){
+            var ps = document.getElementById("ps");
+            var btn = document.getElementById("btn");
+            btn.onclick = function(){
+                ps.className = "sb";//class是js的关键字 用className代替class
+            }
+        }
+    </script>
+</body>
+</html>

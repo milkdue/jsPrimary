@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            border: 10px solid blue;
+            background-color: red;
+            margin: 0 100px;
+        }
+
+        #box #box1{
+            width: 300px;
+            height: 300px;
+            border: 10px solid skyblue;
+            background-color: green;
+            padding: 10px;
+            overflow: scroll;
+        }
+
+        #box #box1 .box2{
+            width: 500px;
+            height: 500px;
+            border: 10px solid yellow;
+            background-color: rgb(255, 146, 20);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        Offset系列      只读
+            offsetWidth 
+                从边框开始计算  内容 内边距 边框
+            offsetHeight
+            offsetLeft
+                盒子左边偏移量  其实就是元素设置的left值 离它最近的定位祖先元素的原点
+                用到一定和定位相关 设置还是靠style.left设置
+            offsetTop
+                盒子上边偏移量
+        Client系列         只读
+            clientWidth
+                从内边距计算    内边距 内容
+            clientHeight
+            clientLeft
+                左边框
+            clientTop
+                上边框
+        Scroll系列
+            scrollWidth      只读
+                当内容比盒子小的时候拿的是clientWidth
+                当内容比盒子大的时候拿的是内容的offsetWidth + 盒子的一侧内边距 + 盒子的一侧边框
+            scrollHeight     只读
+            scrollTop        可写
+                元素往上滚动的距离
+            scrollLeft       可写
+                元素往左滚动的距离
+
+        拿元素的宽高 先看元素的边框 如果没有边框offsetWidth 和 clientWidth一样
+        如果有 看需求scrollWidth几乎不用
+        
+     -->
+     <div id="box">
+         <div id="box1">
+             <div class="box2"></div>
+         </div>
+     </div>
+     <button>点击获取滚动的距离</button>
+
+     <script>
+         boxNode = document.querySelector("#box");
+        //  console.log(boxNode.style.width);//读不到 js操作的是行内样式
+        console.log(boxNode.offsetWidth);
+        console.log(boxNode.clientWidth);
+        console.log(boxNode.scrollWidth);
+        console.log(boxNode.clientLeft);
+        console.log(boxNode.clientTop);
+        console.log(boxNode.offsetLeft);//相对于初始包含快的距离
+        var btn = document.querySelector("button");
+
+        btn.onclick = function(){
+            console.log(box1.scrollWidth);
+            console.log(box1.scrollTop);
+        }
+     </script>
+</body>
+</html>

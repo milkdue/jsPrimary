@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #img{
+            display : block;
+            margin : 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="../img/1.png" id="img" aa = "bb">
+    <script>
+        window.onload = function(){
+            var imgArr = ["../img/1.png", "../img/2.png", "../img/3.png", "../img/4.png", "../img/5.png", "../img/6.png"];
+            var imgNode = document.getElementById("img");
+            var num = 1;
+            imgNode.onclick = function(){
+                this.src = imgArr[num % imgArr.length];//this表示事件源 在事件中 回调函数中用来表示事件的执行者 事件源 就是绑定事件监听的对象也就是节点 dom对象中的节点
+                num++;
+            }
+        }
+    </script>
+</body>
+</html>

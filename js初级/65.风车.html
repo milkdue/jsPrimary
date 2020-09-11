@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .list{
+            padding: 0;
+            width: 400px;
+            height: 400px;
+            /* background-color: red; */
+            display: flex;
+            flex-wrap: wrap;
+            margin: 200px auto;
+            animation: move 2s infinite linear;
+        }
+
+        .list li{
+            list-style: none;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .list li:nth-child(1), .list li:nth-child(4){
+            border-radius: 0 100% 0 100%; 
+        }
+
+        .list li:nth-child(2), .list li:nth-child(3){
+            border-radius: 100% 0 100% 0; 
+        }
+
+        button{
+            display: block;
+            margin: 0 auto;
+        }
+
+        @keyframes move {
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+<body>
+    <ul class="list">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <button>off/on</button>
+
+    <script>
+        var btnNode = document.querySelector("button");
+        var listNode = document.querySelector(".list");
+        var flag = true;
+        btnNode.onclick = function(){
+            if(flag){
+                listNode.style.animationPlayState = "paused";
+            }else{
+                listNode.style.animationPlayState = "running";
+            }
+
+            flag = !flag;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //字符串反转
+        function stringReverse(str){
+            str = Array.from(str);
+            str = str.reverse();
+            return str.join("");
+        }
+
+        console.log(stringReverse("iqiyoahz"));
+
+        //数组，字符串的替换操作
+
+        function arrayReplace(arr, str1, str2){
+            var str = arr.join();
+            str = str.replace(str1, str2);
+            return str.split(",");
+        }
+
+        console.log(arrayReplace(["css", "js", "node.js", "vue", "react", "js", "ajax", "JSON"], "js", "html"));
+        console.log(["css", "js", "node.js", "vue", "react", "js", "ajax", "JSON"].join());
+
+        //打印字符串中出现字母最多的次数和索引位置
+        function count(str){
+            str = Array.from(str);
+            str.sort();
+            var originCode = "abcdefghigklmnopqrstuvwxyz";
+            originCode = Array.from(originCode);
+            var arrayNumber = [];
+
+            for(var i = 0; i < originCode.length; i++){
+                if(str.indexOf(originCode[i]) != -1){
+                    arrayNumber.push(str.lastIndexOf(originCode[i]) - str.indexOf(originCode[i]) + 1);
+                }else{
+                    arrayNumber.push(0);
+                }   
+            }
+
+            var testArray = arrayNumber.join();
+            testArray = testArray.split(",");
+            console.log(testArray);
+            testArray.sort(function(a, b){
+                return b - a;
+            })
+
+            console.log(testArray);
+            console.log(arrayNumber);
+
+            if(testArray[0] == 0){
+                return "空串";
+            }else{
+                return [originCode[arrayNumber.indexOf(+testArray[0])], testArray[0]];
+            }
+        }
+
+        function index(str, letter, number){
+            str = Array.from(str);
+            console.log(str);
+            var numberArray = [str.indexOf(letter)];
+            console.log(numberArray);
+            for(var i = 1; i < number; i++){
+                numberArray.push(str.indexOf(letter, numberArray[i - 1] + 1));
+            }
+
+            return numberArray;
+        }
+
+        var stringTest = "jfafadjafjadfefejfadjfafneifhdnadfjdfhafjaf";
+
+        console.log("出现最多的字母" + count(stringTest)[0] + "一共出现了" + count(stringTest)[1] + "次" + "它们的索引数组是" + index(stringTest, count(stringTest)[0], count(stringTest)[1]));
+    </script>
+</body>
+</html>

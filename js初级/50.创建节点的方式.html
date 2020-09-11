@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <p>我是一段文本</p> -->
+    <ul class="list">
+        <li>大闹天宫</li>
+        <li>烈火英雄</li>
+        <li>上海堡垒</li>
+    </ul>
+
+    <ul class="movie">
+        <button id="btn">点我</button>
+    </ul>
+    <script>
+        /*
+            创建节点的方式
+                1.document.write()  根本不用
+                    只能在页面加载的过程中使用 如果当页面加载完成以后使用 再使用会将其他DOM干掉
+                2.obj.innerHTML()
+                3.document.createElement()
+                    追加对象 对象.appendChild(被追加的对象)
+        */
+
+        window.onload = function(){
+            // document.write("<h2>我是一篇文章</h2>
+            var listNode = document.querySelector(".list");
+            listNode.innerHTML = "<li>特别行动</li>"//覆盖掉了
+            listNode.innerHTML = "<li>大闹天宫</li><li>烈火英雄</li><li>上海堡垒</li><li>特别行动</li>"
+            var movieNode = document.querySelector(".movie");
+            var movies = ["大闹天宫", "烈火英雄", "上海堡垒", "特别行动"];
+            str = "";
+            for(var i = 0; i < movies.length; i++){
+                str += "<li>" + movies[i] + "</li>";
+            }
+
+            
+            var btnNode = document.getElementById("btn");
+            btnNode.onclick = function(){
+                // movieNode.innerHTML = str;//覆盖
+                movieNode.innerHTML += str;//不覆盖
+                //创建DOM对象
+                var ulNode = document.createElement("ul");
+                for(var i = 0; i < movies.length; i++){
+                    var liNode = document.createElement("li");
+                    liNode.innerHTML = movies[i];
+                    ulNode.appendChild(liNode);//在ul中追加子元素
+                }
+                //在body中追加元素 不追加就没有ul
+                document.body.appendChild(ulNode);
+            }
+
+            
+
+
+
+            
+            
+        }
+    </script>
+</body>
+</html>

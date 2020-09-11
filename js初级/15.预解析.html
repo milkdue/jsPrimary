@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            预解析
+                第一步
+                    函数发生预解析 如果发生同名则覆盖
+                第二步
+                    带var的变量发生预解析 如果发生同名则忽略
+
+        */
+
+        // alert(a);//报错
+        // a = 1;
+
+        // alert(a);//undefined
+        // var a = 0;
+        // alert(a);//0
+
+        // alert(a);  //函数a  
+        // var a = '我是变量';//解析
+        // function a(){ alert('我是函数') }//解析覆盖掉变量a直到变量初始化以后被覆盖掉
+        // alert(a);  //我是变量  
+
+        // alert(a); //函数
+        // a++;//函数+1 转换数字   NaN
+        // alert(a); //NaN
+        // function a(){ alert('我是函数') }//解析
+        // var a = '我是变量';//解析 忽略同名函数
+        // alert(a)   //我是变量
+
+        // alert(a);   //undefined
+        // var a = 0;//解析
+        // alert(a);   //0
+        // function fn(){//解析
+        //     alert(a);  //undefined 
+        //     var a = 1;//函数内解析
+        //     alert(a);  //1  
+        // }
+        // fn()//调用
+        // alert(a);   //0
+
+        alert(a);  //undefined  
+        var a = 0;//解析
+        alert(a);    //0
+        function fn(){//解析
+            alert(a);    //0
+            a = 1;
+            alert(a);   //1
+        }
+        fn()
+        alert(a);   //1
+        </script>
+</body>
+</html>
